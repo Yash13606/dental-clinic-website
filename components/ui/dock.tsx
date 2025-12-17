@@ -9,7 +9,7 @@ import {
     type SpringOptions,
     AnimatePresence,
 } from 'framer-motion';
-import {
+import React, {
     Children,
     cloneElement,
     createContext,
@@ -163,9 +163,10 @@ function DockItem({ children, className }: DockItemProps) {
             role='button'
             aria-haspopup='true'
         >
-            {Children.map(children, (child) =>
-                cloneElement(child as React.ReactElement, { width, isHovered })
-            )}
+            {Children.map(children, (child) => {
+                if (!React.isValidElement(child)) return child;
+                return cloneElement(child, { width, isHovered } as any);
+            })}
         </motion.div>
     );
 }
