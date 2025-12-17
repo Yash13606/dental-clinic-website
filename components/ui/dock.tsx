@@ -41,10 +41,14 @@ type DockItemProps = {
 type DockLabelProps = {
     className?: string;
     children: React.ReactNode;
+    width?: MotionValue<number>;
+    isHovered?: MotionValue<number>;
 };
 type DockIconProps = {
     className?: string;
     children: React.ReactNode;
+    width?: MotionValue<number>;
+    isHovered?: MotionValue<number>;
 };
 
 type DocContextType = {
